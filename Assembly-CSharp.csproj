@@ -54,9 +54,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BuildObject.cs" />
-    <Compile Include="Assets\Scripts\CircleData.cs" />
+    <Compile Include="Assets\Scripts\CircleBuilder.cs" />
     <Compile Include="Assets\Scripts\ShaderBase.cs" />
     <Compile Include="Assets\Scripts\ShowMeshProp.cs" />
+    <Compile Include="Assets\Scripts\JsonReader.cs" />
+    <Compile Include="Assets\Scripts\CylinderBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -281,11 +283,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Software\Unity Edit\2020.3.12f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="LitJSON">
       <HintPath>Assets\Plugins\LitJson.0.17.0\lib\netstandard2.0\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Software\Unity Edit\2020.3.12f1c1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
