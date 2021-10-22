@@ -15,17 +15,19 @@ public class CylinderBuilder : MonoBehaviour
     List<Vector3> cylinderVertices;
     List<List<float>> data;
     float lastPos = -1;
-    
+
 
     private void Start()
     {
         cylinderVertices = new List<Vector3>();
         data = JsonReader.ReadJson();
-        for(int i = 0; i < 50; i++)
+        for (int i = 0; i < data.Count; i++)
         {
             CalculateVertics();
         }
-        ShowPos(cylinderVertices);
+        //ShowPos(cylinderVertices);
+        MeshBuilder meshBuilder = new MeshBuilder();
+        meshBuilder.CalculateMesh(cylinderVertices);
     }
 
     private void Update()
@@ -34,7 +36,7 @@ public class CylinderBuilder : MonoBehaviour
         {
             Debug.Log("Drawing...");
             if (posIndex < 500) ;
-                //CalculateVertics();
+            //CalculateVertics();
             //DrawCircle();
         }
         if (Input.GetKeyDown(KeyCode.P))
@@ -46,11 +48,11 @@ public class CylinderBuilder : MonoBehaviour
     public void CalculateVertics()
     {
         List<Vector3> curCircle;
-        if(posIndex > 0 && lastPos > 0)
+        if (posIndex > 0 && lastPos > 0)
         {
             float gap = data[posIndex][0] - lastPos;
 
-            if(gap <= 0)
+            if (gap <= 0)
             {
                 posIndex++;
                 return;
@@ -72,7 +74,7 @@ public class CylinderBuilder : MonoBehaviour
                     float b = Mathf.Lerp(data[posIndex - 1][2], data[posIndex][2], (float)i / (float)addGaps);
                     Debug.Log("a: " + a + " b: " + b + " pos: " + pos);
                     List<Vector3> temp = CircleBuilder.GenerateCirtleVertices(new Vector3(pos, 0, 0), direction, radius, sides, scale, a, b);
-                    ShowPos(temp);
+                    //ShowPos(temp);
                     cylinderVertices.AddRange(temp);
                 }
                 Debug.Log("A: " + data[posIndex][0] + " B: " + data[posIndex][1] + " Pos: " + data[posIndex][2]);
