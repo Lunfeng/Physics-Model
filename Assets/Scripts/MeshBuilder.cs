@@ -13,9 +13,10 @@ public class MeshBuilder : MonoBehaviour
     {
         tang = new List<int>();
         int totalRows = vertices.Count / 30;
+        Debug.Log(totalRows);
         int rows;
         int vols;
-        for (rows = 0; rows < totalRows - 1; rows++)
+        for (rows = 0; rows < totalRows; rows++)
         {
             for (vols = 0; vols < 30; vols++)
             {

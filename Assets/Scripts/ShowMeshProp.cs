@@ -33,7 +33,7 @@ public class ShowMeshProp : MonoBehaviour
         if (Application.isPlaying)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireMesh(mesh, Vertices.transform.position);
+            Gizmos.DrawWireMesh(mesh);
         }
     }
 

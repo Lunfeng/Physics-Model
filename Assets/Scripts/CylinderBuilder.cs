@@ -21,7 +21,7 @@ public class CylinderBuilder : MonoBehaviour
     {
         cylinderVertices = new List<Vector3>();
         data = JsonReader.ReadJson();
-        for (int i = 0; i < data.Count; i++)
+        for (int i = posIndex; i < data.Count; i++)
         {
             CalculateVertics();
         }
@@ -62,7 +62,7 @@ public class CylinderBuilder : MonoBehaviour
             {
                 int addGaps = (gap % maxGap == 0) ? (int)(gap / maxGap - 1) : (int)(gap / maxGap) + 1;
                 float gapLength = gap / addGaps;
-                Debug.Log("oldA: " + data[posIndex - 1][0] + " oldB: " + data[posIndex - 1][1] + " oldPos: " + data[posIndex - 1][2]);
+                //Debug.Log("oldA: " + data[posIndex - 1][0] + " oldB: " + data[posIndex - 1][1] + " oldPos: " + data[posIndex - 1][2]);
                 for (int i = 1; i < addGaps; i++)
                 {
 
@@ -77,8 +77,8 @@ public class CylinderBuilder : MonoBehaviour
                     //ShowPos(temp);
                     cylinderVertices.AddRange(temp);
                 }
-                Debug.Log("A: " + data[posIndex][0] + " B: " + data[posIndex][1] + " Pos: " + data[posIndex][2]);
-                Debug.Log("Gap: " + gap + " addGaps: " + addGaps + " gaplength: " + gapLength);
+                //Debug.Log("A: " + data[posIndex][0] + " B: " + data[posIndex][1] + " Pos: " + data[posIndex][2]);
+                //Debug.Log("Gap: " + gap + " addGaps: " + addGaps + " gaplength: " + gapLength);
             }
         }
 
