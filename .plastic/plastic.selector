@@ -1,0 +1,4 @@
+repository "Physics Model@ssl://lunfeng825@sh01-plasticscm.unity.cn:8787"
+  path "/"
+    smartbranch "/main/1427208963" 
+     
