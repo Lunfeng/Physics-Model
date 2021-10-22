@@ -54,11 +54,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BuildObject.cs" />
+    <Compile Include="Assets\Scripts\CylinderBuilder.cs" />
     <Compile Include="Assets\Scripts\CircleBuilder.cs" />
+    <Compile Include="Assets\Scripts\JsonReader.cs" />
     <Compile Include="Assets\Scripts\ShaderBase.cs" />
     <Compile Include="Assets\Scripts\ShowMeshProp.cs" />
-    <Compile Include="Assets\Scripts\JsonReader.cs" />
-    <Compile Include="Assets\Scripts\CylinderBuilder.cs" />
+    <Compile Include="Assets\Scripts\Meshbuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

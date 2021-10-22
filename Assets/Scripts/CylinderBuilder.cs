@@ -21,6 +21,11 @@ public class CylinderBuilder : MonoBehaviour
     {
         cylinderVertices = new List<Vector3>();
         data = JsonReader.ReadJson();
+        for(int i = 0; i < 50; i++)
+        {
+            CalculateVertics();
+        }
+        ShowPos(cylinderVertices);
     }
 
     private void Update()
@@ -28,12 +33,13 @@ public class CylinderBuilder : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             Debug.Log("Drawing...");
-            CalculateVertics();
+            if (posIndex < 500) ;
+                //CalculateVertics();
             //DrawCircle();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            ShowPos(cylinderVertices);
+            //ShowPos(cylinderVertices);
         }
     }
 
