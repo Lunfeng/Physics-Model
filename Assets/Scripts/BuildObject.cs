@@ -43,7 +43,7 @@ public class BuildObject : MonoBehaviour
 
     public void DrawCircle()
     {
-        List<Vector3> circleData2 = CircleBuilder.GenerateCirtleVertices(new Vector3(float.Parse(jsonData[i][0].ToString()), 0f, 0f), Vector3.right, 1f, 30, 0, float.Parse(jsonData[i][1].ToString()), float.Parse(jsonData[i][2].ToString()));
+        List<Vector3> circleData2 = CircleBuilder.GenerateCirtleVertices(new Vector3(float.Parse(jsonData[i][0].ToString()), 0f, 0f), Vector3.right, 1f, 0, float.Parse(jsonData[i][1].ToString()), float.Parse(jsonData[i][2].ToString()));
         ShowPos(circleData2);
         i++;
     }

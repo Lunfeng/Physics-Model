@@ -53,13 +53,16 @@
     <UnityVersion>2020.3.12f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MeshBuilder.cs" />
     <Compile Include="Assets\Scripts\BuildObject.cs" />
     <Compile Include="Assets\Scripts\CylinderBuilder.cs" />
     <Compile Include="Assets\Scripts\CircleBuilder.cs" />
     <Compile Include="Assets\Scripts\JsonReader.cs" />
     <Compile Include="Assets\Scripts\ShaderBase.cs" />
     <Compile Include="Assets\Scripts\ShowMeshProp.cs" />
-    <Compile Include="Assets\Scripts\Meshbuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shader\fade.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
