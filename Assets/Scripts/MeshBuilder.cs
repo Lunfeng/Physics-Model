@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class MeshBuilder : MonoBehaviour
@@ -9,7 +10,7 @@ public class MeshBuilder : MonoBehaviour
     //int[] triangles = { };
     List<int> tang;
 
-    public void CalculateMesh(List<Vector3> vertices, int sides)
+    public void CalculateMesh(List<Vector3> vertices, int sides, Transform parent)
     {
         tang = new List<int>();
         int totalRows = vertices.Count / sides;
@@ -28,15 +29,16 @@ public class MeshBuilder : MonoBehaviour
                 tang.AddRange(temp);
             }
         }
-        Debug.Log(totalRows);
+        //Debug.Log(totalRows);
         mesh = new Mesh();
         mesh.vertices = vertices.ToArray();
         mesh.triangles = tang.ToArray();
         mesh.RecalculateNormals();
         GameObject r = new GameObject();
+        r.transform.SetParent(parent);
         r.AddComponent<MeshFilter>().mesh = mesh;
         //r.AddComponent<ShowMeshProp>();
-        r.AddComponent<MeshRenderer>().material = new Material(Shader.Find("Standard")) { color = Color.cyan };     //<======在这里改颜色=====>
+        r.AddComponent<MeshRenderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/particle.mat", typeof(Material));     //<======在这里改颜色=====>
         //ShowMesh(vertices, tang.ToArray());
     }
 
