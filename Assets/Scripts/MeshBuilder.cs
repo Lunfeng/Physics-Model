@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class MeshBuilder : MonoBehaviour
@@ -9,32 +10,35 @@ public class MeshBuilder : MonoBehaviour
     //int[] triangles = { };
     List<int> tang;
 
-    public void CalculateMesh(List<Vector3> vertices)
+    public void CalculateMesh(List<Vector3> vertices, int sides, Transform parent)
     {
         tang = new List<int>();
-        int totalRows = vertices.Count / 30;
-        Debug.Log(totalRows);
+        int totalRows = vertices.Count / sides;
+        //Debug.Log(totalRows);
         int rows;
         int vols;
-        for (rows = 0; rows < totalRows; rows++)
+        for (rows = 0; rows < totalRows - 1; rows++)
         {
-            for (vols = 0; vols < 30; vols++)
+            for (vols = 0; vols < sides; vols++)
             {
                 int[] temp =
                 {
-                    (rows * 30 + vols), ((rows + 1) * 30 + (vols + 1) % 30), ((rows + 1) * 30 + vols),
-                    (rows * 30 + vols), (rows * 30 + ((vols + 1) % 30)), ((rows + 1) * 30 + (vols + 1) % 30)
+                    (rows * sides + vols), ((rows + 1) * sides + (vols + 1) % sides), ((rows + 1) * sides + vols),
+                    (rows * sides + vols), (rows * sides + ((vols + 1) % sides)), ((rows + 1) * sides + (vols + 1) % sides)
                 };
                 tang.AddRange(temp);
             }
         }
+        //Debug.Log(totalRows);
         mesh = new Mesh();
         mesh.vertices = vertices.ToArray();
         mesh.triangles = tang.ToArray();
         mesh.RecalculateNormals();
-        GameObject r = GameObject.Find("RenderObject");
-        r.GetComponent<MeshFilter>().mesh = mesh;
-        r.GetComponent<MeshRenderer>().material = new Material(Shader.Find("Standard"));// { color = Color.blue };
+        GameObject r = new GameObject();
+        r.transform.SetParent(parent);
+        r.AddComponent<MeshFilter>().mesh = mesh;
+        //r.AddComponent<ShowMeshProp>();
+        r.AddComponent<MeshRenderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/particle.mat", typeof(Material));     //<======在这里改颜色=====>
         //ShowMesh(vertices, tang.ToArray());
     }
 
